@@ -1,0 +1,31 @@
+﻿<Page x:Class="Supermarket.View.CasierView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Supermarket.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CasierView">
+    <Grid Height="409">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <!-- Column for buttons -->
+            <ColumnDefinition Width="700"/>
+            <!-- Column for the frame -->
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="..\Images\background.jpg" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
+
+        <!-- Buttons aligned to the left -->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="10">
+            <Button Content="Search" Margin="0 5 0 5" Command="{Binding ShowSearchCommand}"/>
+            <Button Content="Bon" Margin="0 5 0 5" Command="{Binding ShowBonCommand}"/>
+        </StackPanel>
+
+        <!-- Frame for the content -->
+        <Frame Grid.Column="1" x:Name="AdminContentFrame" NavigationUIVisibility="Hidden" RenderTransformOrigin="0.5,0.5">
+        </Frame>
+    </Grid>
+</Page>

@@ -1,0 +1,97 @@
+D:\##Facultate\Anul 2\MVP\Supermarket\bin\Debug\Supermarket.exe.config
+D:\##Facultate\Anul 2\MVP\Supermarket\bin\Debug\Supermarket.exe
+D:\##Facultate\Anul 2\MVP\Supermarket\bin\Debug\Supermarket.pdb
+D:\##Facultate\Anul 2\MVP\Supermarket\bin\Debug\EntityFramework.dll
+D:\##Facultate\Anul 2\MVP\Supermarket\bin\Debug\EntityFramework.SqlServer.dll
+D:\##Facultate\Anul 2\MVP\Supermarket\bin\Debug\EntityFramework.xml
+D:\##Facultate\Anul 2\MVP\Supermarket\bin\Debug\EntityFramework.SqlServer.xml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.AssemblyReference.cache
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\MainWindow.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\App.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket_Content.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket_MarkupCompile.cache
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket_MarkupCompile.lref
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\MainWindow.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket.g.resources
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket.Properties.Resources.resources
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.GenerateResource.cache
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.CoreCompileInputs.cache
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.CopyComplete
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket.exe
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\Supermarket.pdb
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\AdminView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\AdminView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\Produse.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\Produse.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\CategorieView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\CategorieView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\ProducatorView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\ProducatorView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\UtilizatorView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\UtilizatorView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\StocuriView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\StocuriView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\CautareProducatorView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\CautareProducatorView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\ValoareCategoriiView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\ValoareCategoriiView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\BonuriView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\BonuriView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\IncasariView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\IncasariView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\BonMareView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\BonMareView.baml
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\AddBonView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Debug\View\AddBonView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\bin\Debug\Supermarket.exe.config
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\bin\Debug\Supermarket.exe
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\bin\Debug\Supermarket.pdb
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\bin\Debug\EntityFramework.dll
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\bin\Debug\EntityFramework.SqlServer.dll
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\bin\Debug\EntityFramework.xml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\bin\Debug\EntityFramework.SqlServer.xml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.AssemblyReference.cache
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.SuggestedBindingRedirects.cache
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\AddBonView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\AdminView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\BonMareView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\BonuriView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\CategorieView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\CautareProducatorView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\IncasariView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\MainWindow.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\ProducatorView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\Produse.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\StocuriView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\UtilizatorView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\ValoareCategoriiView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\App.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket_Content.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket_MarkupCompile.cache
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket_MarkupCompile.lref
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\AddBonView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\AdminView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\BonMareView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\BonuriView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\CategorieView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\CautareProducatorView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\IncasariView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\MainWindow.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\ProducatorView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\Produse.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\StocuriView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\UtilizatorView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\ValoareCategoriiView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.g.resources
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.Properties.Resources.resources
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.GenerateResource.cache
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.CoreCompileInputs.cache
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.csproj.CopyComplete
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.exe
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\Supermarket.pdb
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\CasierView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\CasierView.baml
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\SearchView.g.cs
+C:\##FACULTATE\Anul 2 Semestru 2\MVP\Supermarket\obj\Debug\View\SearchView.baml

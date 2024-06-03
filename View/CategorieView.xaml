@@ -1,0 +1,54 @@
+﻿<Page x:Class="Supermarket.View.CategorieView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Supermarket.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CategorieView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <!-- This row will take the remaining space -->
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" VerticalAlignment="Center" Margin="0,0,400,0" Height="30"
+         ItemsSource="{Binding Categorii}" SelectedItem="{Binding SelectedCategorie}">
+            <!-- Bind ComboBox items to Produse collection from ViewModel -->
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Categorie_nume}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal" Margin="400,0,0,0">
+            <Button Content="Add" Click="AddButton_Click"/>
+            <Button Content="Update" Command="{Binding UpdateCommand}"/>
+            <Button Content="Delete" Command="{Binding DeleteCommand}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Nume"/>
+            <TextBox Name="txtNume" Text="{Binding SelectedCategorie.Categorie_nume, Mode=TwoWay}" Margin="40 5 5 0" Width="352"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label Content="Active"/>
+            <CheckBox Name="checkActive" IsChecked="{Binding SelectedCategorie.Active, Mode=TwoWay}" Margin="5"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="3" VerticalAlignment="Stretch"  
+          ItemsSource="{Binding Categorii}" AutoGenerateColumns="False"
+          ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <!-- Define only the columns you want to display -->
+            <DataGrid.Columns>
+                <!-- Only display the Produs_nume column -->
+                <DataGridTextColumn Header="Nume" Binding="{Binding Categorie_nume}"/>
+                <DataGridTextColumn Header="Active" Binding="{Binding Active}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

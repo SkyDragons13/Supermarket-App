@@ -1,0 +1,40 @@
+﻿<Page x:Class="Supermarket.View.IncasariView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Supermarket.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="IncasariView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <!-- This row will take the remaining space -->
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" VerticalAlignment="Center" Margin="0,0,400,0" Height="30"
+     ItemsSource="{Binding Utilizatori}" SelectedItem="{Binding SelectedUtilizator}">
+            <!-- Bind ComboBox items to Produse collection from ViewModel -->
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Nume}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <DatePicker Grid.Row="1" VerticalAlignment="Center" Margin="0,0,400,0" Height="30" SelectedDate="{Binding SelectedDate}" local:DatePickerCalendar.IsMonthYear="True" 
+            local:DatePickerDateFormat.DateFormat="MMM-yyyy" Text="MMM-yyyy"/>
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="2" VerticalAlignment="Stretch"  
+      ItemsSource="{Binding SumaIncasata}" AutoGenerateColumns="False"
+      ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <!-- Define only the columns you want to display -->
+            <DataGrid.Columns>
+                <!-- Only display the Produs_nume column -->
+                <DataGridTextColumn Header="Ziua" Binding="{Binding Ziua}"/>
+                <DataGridTextColumn Header="Suma" Binding="{Binding Suma}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

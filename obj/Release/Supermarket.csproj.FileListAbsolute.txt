@@ -1,0 +1,17 @@
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\Supermarket.csproj.AssemblyReference.cache
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\AdminView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\BonuriView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\CategorieView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\CautareProducatorView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\IncasariView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\MainWindow.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\ProducatorView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\Produse.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\StocuriView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\UtilizatorView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\View\ValoareCategoriiView.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\App.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\Supermarket_Content.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\Supermarket_MarkupCompile.cache
+D:\##Facultate\Anul 2\MVP\Supermarket\obj\Release\Supermarket_MarkupCompile.lref

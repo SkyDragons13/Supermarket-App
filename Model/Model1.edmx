@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SupermarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bonuri">
+          <Key>
+            <PropertyRef Name="Bon_id" />
+          </Key>
+          <Property Name="Bon_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Data_eliberare" Type="datetime" Nullable="false" />
+          <Property Name="Casier" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Suma_incasata" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bonuri_Stocuri">
+          <Key>
+            <PropertyRef Name="Bon_id" />
+            <PropertyRef Name="Stoc_id" />
+          </Key>
+          <Property Name="Bon_id" Type="int" Nullable="false" />
+          <Property Name="Stoc_id" Type="int" Nullable="false" />
+          <Property Name="Produs_nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cantitate" Type="int" Nullable="false" />
+          <Property Name="Pret" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="Categorie_id" />
+          </Key>
+          <Property Name="Categorie_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Categorie_nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producator">
+          <Key>
+            <PropertyRef Name="Producator_id" />
+          </Key>
+          <Property Name="Producator_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Producator_nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tara_origine" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Produs">
+          <Key>
+            <PropertyRef Name="Produs_id" />
+          </Key>
+          <Property Name="Produs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Produs_nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cod_bare" Type="int" Nullable="false" />
+          <Property Name="Categorie_id" Type="int" Nullable="false" />
+          <Property Name="Producator_id" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stocuri">
+          <Key>
+            <PropertyRef Name="Stoc_id" />
+          </Key>
+          <Property Name="Stoc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cantitate" Type="int" Nullable="false" />
+          <Property Name="Unitate_masura" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data_aprovizionare" Type="date" Nullable="false" />
+          <Property Name="Data_expirare" Type="date" Nullable="false" />
+          <Property Name="Pret_achizitie" Type="int" Nullable="false" />
+          <Property Name="Pret_vanzare" Type="int" Nullable="false" />
+          <Property Name="Produs_id" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilizator">
+          <Key>
+            <PropertyRef Name="Utilizator_id" />
+          </Key>
+          <Property Name="Utilizator_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" />
+          <Property Name="Parola" Type="varchar" MaxLength="50" />
+          <Property Name="Tip" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Bonuri_Stocuri_Bonuri">
+          <End Role="Bonuri" Type="Self.Bonuri" Multiplicity="1" />
+          <End Role="Bonuri_Stocuri" Type="Self.Bonuri_Stocuri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bonuri">
+              <PropertyRef Name="Bon_id" />
+            </Principal>
+            <Dependent Role="Bonuri_Stocuri">
+              <PropertyRef Name="Bon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bonuri_Stocuri_Stocuri">
+          <End Role="Stocuri" Type="Self.Stocuri" Multiplicity="1" />
+          <End Role="Bonuri_Stocuri" Type="Self.Bonuri_Stocuri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stocuri">
+              <PropertyRef Name="Stoc_id" />
+            </Principal>
+            <Dependent Role="Bonuri_Stocuri">
+              <PropertyRef Name="Stoc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produs_ToTable">
+          <End Role="Producator" Type="Self.Producator" Multiplicity="1" />
+          <End Role="Produs" Type="Self.Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producator">
+              <PropertyRef Name="Producator_id" />
+            </Principal>
+            <Dependent Role="Produs">
+              <PropertyRef Name="Producator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produs_ToTable_1">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="Produs" Type="Self.Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="Categorie_id" />
+            </Principal>
+            <Dependent Role="Produs">
+              <PropertyRef Name="Categorie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stocuri_ToTable">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1" />
+          <End Role="Stocuri" Type="Self.Stocuri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Produs_id" />
+            </Principal>
+            <Dependent Role="Stocuri">
+              <PropertyRef Name="Produs_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SupermarketModelStoreContainer">
+          <EntitySet Name="Bonuri" EntityType="Self.Bonuri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bonuri_Stocuri" EntityType="Self.Bonuri_Stocuri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producator" EntityType="Self.Producator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produs" EntityType="Self.Produs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stocuri" EntityType="Self.Stocuri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilizator" EntityType="Self.Utilizator" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bonuri_Stocuri_Bonuri" Association="Self.FK_Bonuri_Stocuri_Bonuri">
+            <End Role="Bonuri" EntitySet="Bonuri" />
+            <End Role="Bonuri_Stocuri" EntitySet="Bonuri_Stocuri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bonuri_Stocuri_Stocuri" Association="Self.FK_Bonuri_Stocuri_Stocuri">
+            <End Role="Stocuri" EntitySet="Stocuri" />
+            <End Role="Bonuri_Stocuri" EntitySet="Bonuri_Stocuri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produs_ToTable" Association="Self.FK_Produs_ToTable">
+            <End Role="Producator" EntitySet="Producator" />
+            <End Role="Produs" EntitySet="Produs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produs_ToTable_1" Association="Self.FK_Produs_ToTable_1">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Produs" EntitySet="Produs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stocuri_ToTable" Association="Self.FK_Stocuri_ToTable">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="Stocuri" EntitySet="Stocuri" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SupermarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bonuri">
+          <Key>
+            <PropertyRef Name="Bon_id" />
+          </Key>
+          <Property Name="Bon_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data_eliberare" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Casier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Suma_incasata" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bonuri_Stocuri" Relationship="Self.FK_Bonuri_Stocuri_Bonuri" FromRole="Bonuri" ToRole="Bonuri_Stocuri" />
+        </EntityType>
+        <EntityType Name="Bonuri_Stocuri">
+          <Key>
+            <PropertyRef Name="Bon_id" />
+            <PropertyRef Name="Stoc_id" />
+          </Key>
+          <Property Name="Bon_id" Type="Int32" Nullable="false" />
+          <Property Name="Stoc_id" Type="Int32" Nullable="false" />
+          <Property Name="Produs_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cantitate" Type="Int32" Nullable="false" />
+          <Property Name="Pret" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bonuri" Relationship="Self.FK_Bonuri_Stocuri_Bonuri" FromRole="Bonuri_Stocuri" ToRole="Bonuri" />
+          <NavigationProperty Name="Stocuri" Relationship="Self.FK_Bonuri_Stocuri_Stocuri" FromRole="Bonuri_Stocuri" ToRole="Stocuri" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="Categorie_id" />
+          </Key>
+          <Property Name="Categorie_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Categorie_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK_Produs_ToTable_1" FromRole="Categorie" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="Producator">
+          <Key>
+            <PropertyRef Name="Producator_id" />
+          </Key>
+          <Property Name="Producator_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Producator_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tara_origine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK_Produs_ToTable" FromRole="Producator" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="Produs">
+          <Key>
+            <PropertyRef Name="Produs_id" />
+          </Key>
+          <Property Name="Produs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Produs_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cod_bare" Type="Int32" Nullable="false" />
+          <Property Name="Categorie_id" Type="Int32" Nullable="false" />
+          <Property Name="Producator_id" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK_Produs_ToTable_1" FromRole="Produs" ToRole="Categorie" />
+          <NavigationProperty Name="Producator" Relationship="Self.FK_Produs_ToTable" FromRole="Produs" ToRole="Producator" />
+          <NavigationProperty Name="Stocuri" Relationship="Self.FK_Stocuri_ToTable" FromRole="Produs" ToRole="Stocuri" />
+        </EntityType>
+        <EntityType Name="Stocuri">
+          <Key>
+            <PropertyRef Name="Stoc_id" />
+          </Key>
+          <Property Name="Stoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cantitate" Type="Int32" Nullable="false" />
+          <Property Name="Unitate_masura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Data_aprovizionare" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_expirare" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pret_achizitie" Type="Int32" Nullable="false" />
+          <Property Name="Pret_vanzare" Type="Int32" Nullable="false" />
+          <Property Name="Produs_id" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Bonuri_Stocuri" Relationship="Self.FK_Bonuri_Stocuri_Stocuri" FromRole="Stocuri" ToRole="Bonuri_Stocuri" />
+          <NavigationProperty Name="Produs" Relationship="Self.FK_Stocuri_ToTable" FromRole="Stocuri" ToRole="Produs" />
+        </EntityType>
+        <EntityType Name="Utilizator">
+          <Key>
+            <PropertyRef Name="Utilizator_id" />
+          </Key>
+          <Property Name="Utilizator_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Bonuri_Stocuri_Bonuri">
+          <End Role="Bonuri" Type="Self.Bonuri" Multiplicity="1" />
+          <End Role="Bonuri_Stocuri" Type="Self.Bonuri_Stocuri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bonuri">
+              <PropertyRef Name="Bon_id" />
+            </Principal>
+            <Dependent Role="Bonuri_Stocuri">
+              <PropertyRef Name="Bon_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bonuri_Stocuri_Stocuri">
+          <End Role="Stocuri" Type="Self.Stocuri" Multiplicity="1" />
+          <End Role="Bonuri_Stocuri" Type="Self.Bonuri_Stocuri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stocuri">
+              <PropertyRef Name="Stoc_id" />
+            </Principal>
+            <Dependent Role="Bonuri_Stocuri">
+              <PropertyRef Name="Stoc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produs_ToTable_1">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="Produs" Type="Self.Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="Categorie_id" />
+            </Principal>
+            <Dependent Role="Produs">
+              <PropertyRef Name="Categorie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produs_ToTable">
+          <End Role="Producator" Type="Self.Producator" Multiplicity="1" />
+          <End Role="Produs" Type="Self.Produs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producator">
+              <PropertyRef Name="Producator_id" />
+            </Principal>
+            <Dependent Role="Produs">
+              <PropertyRef Name="Producator_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stocuri_ToTable">
+          <End Role="Produs" Type="Self.Produs" Multiplicity="1" />
+          <End Role="Stocuri" Type="Self.Stocuri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produs">
+              <PropertyRef Name="Produs_id" />
+            </Principal>
+            <Dependent Role="Stocuri">
+              <PropertyRef Name="Produs_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SupermarketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bonuri" EntityType="Self.Bonuri" />
+          <EntitySet Name="Bonuri_Stocuri" EntityType="Self.Bonuri_Stocuri" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+          <EntitySet Name="Producator" EntityType="Self.Producator" />
+          <EntitySet Name="Produs" EntityType="Self.Produs" />
+          <EntitySet Name="Stocuri" EntityType="Self.Stocuri" />
+          <EntitySet Name="Utilizator" EntityType="Self.Utilizator" />
+          <AssociationSet Name="FK_Bonuri_Stocuri_Bonuri" Association="Self.FK_Bonuri_Stocuri_Bonuri">
+            <End Role="Bonuri" EntitySet="Bonuri" />
+            <End Role="Bonuri_Stocuri" EntitySet="Bonuri_Stocuri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bonuri_Stocuri_Stocuri" Association="Self.FK_Bonuri_Stocuri_Stocuri">
+            <End Role="Stocuri" EntitySet="Stocuri" />
+            <End Role="Bonuri_Stocuri" EntitySet="Bonuri_Stocuri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produs_ToTable_1" Association="Self.FK_Produs_ToTable_1">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Produs" EntitySet="Produs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produs_ToTable" Association="Self.FK_Produs_ToTable">
+            <End Role="Producator" EntitySet="Producator" />
+            <End Role="Produs" EntitySet="Produs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stocuri_ToTable" Association="Self.FK_Stocuri_ToTable">
+            <End Role="Produs" EntitySet="Produs" />
+            <End Role="Stocuri" EntitySet="Stocuri" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SupermarketModelStoreContainer" CdmEntityContainer="SupermarketEntities">
+          <EntitySetMapping Name="Bonuri">
+            <EntityTypeMapping TypeName="SupermarketModel.Bonuri">
+              <MappingFragment StoreEntitySet="Bonuri">
+                <ScalarProperty Name="Bon_id" ColumnName="Bon_id" />
+                <ScalarProperty Name="Data_eliberare" ColumnName="Data_eliberare" />
+                <ScalarProperty Name="Casier" ColumnName="Casier" />
+                <ScalarProperty Name="Suma_incasata" ColumnName="Suma_incasata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bonuri_Stocuri">
+            <EntityTypeMapping TypeName="SupermarketModel.Bonuri_Stocuri">
+              <MappingFragment StoreEntitySet="Bonuri_Stocuri">
+                <ScalarProperty Name="Bon_id" ColumnName="Bon_id" />
+                <ScalarProperty Name="Stoc_id" ColumnName="Stoc_id" />
+                <ScalarProperty Name="Produs_nume" ColumnName="Produs_nume" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+                <ScalarProperty Name="Pret" ColumnName="Pret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorie">
+            <EntityTypeMapping TypeName="SupermarketModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="Categorie_id" ColumnName="Categorie_id" />
+                <ScalarProperty Name="Categorie_nume" ColumnName="Categorie_nume" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producator">
+            <EntityTypeMapping TypeName="SupermarketModel.Producator">
+              <MappingFragment StoreEntitySet="Producator">
+                <ScalarProperty Name="Producator_id" ColumnName="Producator_id" />
+                <ScalarProperty Name="Producator_nume" ColumnName="Producator_nume" />
+                <ScalarProperty Name="Tara_origine" ColumnName="Tara_origine" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produs">
+            <EntityTypeMapping TypeName="SupermarketModel.Produs">
+              <MappingFragment StoreEntitySet="Produs">
+                <ScalarProperty Name="Produs_id" ColumnName="Produs_id" />
+                <ScalarProperty Name="Produs_nume" ColumnName="Produs_nume" />
+                <ScalarProperty Name="Cod_bare" ColumnName="Cod_bare" />
+                <ScalarProperty Name="Categorie_id" ColumnName="Categorie_id" />
+                <ScalarProperty Name="Producator_id" ColumnName="Producator_id" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocuri">
+            <EntityTypeMapping TypeName="SupermarketModel.Stocuri">
+              <MappingFragment StoreEntitySet="Stocuri">
+                <ScalarProperty Name="Stoc_id" ColumnName="Stoc_id" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+                <ScalarProperty Name="Unitate_masura" ColumnName="Unitate_masura" />
+                <ScalarProperty Name="Data_aprovizionare" ColumnName="Data_aprovizionare" />
+                <ScalarProperty Name="Data_expirare" ColumnName="Data_expirare" />
+                <ScalarProperty Name="Pret_achizitie" ColumnName="Pret_achizitie" />
+                <ScalarProperty Name="Pret_vanzare" ColumnName="Pret_vanzare" />
+                <ScalarProperty Name="Produs_id" ColumnName="Produs_id" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilizator">
+            <EntityTypeMapping TypeName="SupermarketModel.Utilizator">
+              <MappingFragment StoreEntitySet="Utilizator">
+                <ScalarProperty Name="Utilizator_id" ColumnName="Utilizator_id" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Parola" ColumnName="Parola" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

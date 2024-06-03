@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SupermarketModelStoreContainer" CdmEntityContainer="SupermarketEntities">
+    <EntitySetMapping Name="Bonuri">
+      <EntityTypeMapping TypeName="SupermarketModel.Bonuri">
+        <MappingFragment StoreEntitySet="Bonuri">
+          <ScalarProperty Name="Bon_id" ColumnName="Bon_id" />
+          <ScalarProperty Name="Data_eliberare" ColumnName="Data_eliberare" />
+          <ScalarProperty Name="Casier" ColumnName="Casier" />
+          <ScalarProperty Name="Suma_incasata" ColumnName="Suma_incasata" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bonuri_Stocuri">
+      <EntityTypeMapping TypeName="SupermarketModel.Bonuri_Stocuri">
+        <MappingFragment StoreEntitySet="Bonuri_Stocuri">
+          <ScalarProperty Name="Bon_id" ColumnName="Bon_id" />
+          <ScalarProperty Name="Stoc_id" ColumnName="Stoc_id" />
+          <ScalarProperty Name="Produs_nume" ColumnName="Produs_nume" />
+          <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+          <ScalarProperty Name="Pret" ColumnName="Pret" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="SupermarketModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="Categorie_id" ColumnName="Categorie_id" />
+          <ScalarProperty Name="Categorie_nume" ColumnName="Categorie_nume" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producator">
+      <EntityTypeMapping TypeName="SupermarketModel.Producator">
+        <MappingFragment StoreEntitySet="Producator">
+          <ScalarProperty Name="Producator_id" ColumnName="Producator_id" />
+          <ScalarProperty Name="Producator_nume" ColumnName="Producator_nume" />
+          <ScalarProperty Name="Tara_origine" ColumnName="Tara_origine" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produs">
+      <EntityTypeMapping TypeName="SupermarketModel.Produs">
+        <MappingFragment StoreEntitySet="Produs">
+          <ScalarProperty Name="Produs_id" ColumnName="Produs_id" />
+          <ScalarProperty Name="Produs_nume" ColumnName="Produs_nume" />
+          <ScalarProperty Name="Cod_bare" ColumnName="Cod_bare" />
+          <ScalarProperty Name="Categorie_id" ColumnName="Categorie_id" />
+          <ScalarProperty Name="Producator_id" ColumnName="Producator_id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocuri">
+      <EntityTypeMapping TypeName="SupermarketModel.Stocuri">
+        <MappingFragment StoreEntitySet="Stocuri">
+          <ScalarProperty Name="Stoc_id" ColumnName="Stoc_id" />
+          <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+          <ScalarProperty Name="Unitate_masura" ColumnName="Unitate_masura" />
+          <ScalarProperty Name="Data_aprovizionare" ColumnName="Data_aprovizionare" />
+          <ScalarProperty Name="Data_expirare" ColumnName="Data_expirare" />
+          <ScalarProperty Name="Pret_achizitie" ColumnName="Pret_achizitie" />
+          <ScalarProperty Name="Pret_vanzare" ColumnName="Pret_vanzare" />
+          <ScalarProperty Name="Produs_id" ColumnName="Produs_id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilizator">
+      <EntityTypeMapping TypeName="SupermarketModel.Utilizator">
+        <MappingFragment StoreEntitySet="Utilizator">
+          <ScalarProperty Name="Utilizator_id" ColumnName="Utilizator_id" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

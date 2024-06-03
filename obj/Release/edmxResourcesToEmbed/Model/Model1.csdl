@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SupermarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bonuri">
+    <Key>
+      <PropertyRef Name="Bon_id" />
+    </Key>
+    <Property Name="Bon_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Data_eliberare" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Casier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Suma_incasata" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bonuri_Stocuri" Relationship="Self.FK_Bonuri_Stocuri_Bonuri" FromRole="Bonuri" ToRole="Bonuri_Stocuri" />
+  </EntityType>
+  <EntityType Name="Bonuri_Stocuri">
+    <Key>
+      <PropertyRef Name="Bon_id" />
+      <PropertyRef Name="Stoc_id" />
+    </Key>
+    <Property Name="Bon_id" Type="Int32" Nullable="false" />
+    <Property Name="Stoc_id" Type="Int32" Nullable="false" />
+    <Property Name="Produs_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cantitate" Type="Int32" Nullable="false" />
+    <Property Name="Pret" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bonuri" Relationship="Self.FK_Bonuri_Stocuri_Bonuri" FromRole="Bonuri_Stocuri" ToRole="Bonuri" />
+    <NavigationProperty Name="Stocuri" Relationship="Self.FK_Bonuri_Stocuri_Stocuri" FromRole="Bonuri_Stocuri" ToRole="Stocuri" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="Categorie_id" />
+    </Key>
+    <Property Name="Categorie_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Categorie_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Produs" Relationship="Self.FK_Produs_ToTable_1" FromRole="Categorie" ToRole="Produs" />
+  </EntityType>
+  <EntityType Name="Producator">
+    <Key>
+      <PropertyRef Name="Producator_id" />
+    </Key>
+    <Property Name="Producator_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Producator_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tara_origine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" />
+    <NavigationProperty Name="Produs" Relationship="Self.FK_Produs_ToTable" FromRole="Producator" ToRole="Produs" />
+  </EntityType>
+  <EntityType Name="Produs">
+    <Key>
+      <PropertyRef Name="Produs_id" />
+    </Key>
+    <Property Name="Produs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Produs_nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cod_bare" Type="Int32" Nullable="false" />
+    <Property Name="Categorie_id" Type="Int32" Nullable="false" />
+    <Property Name="Producator_id" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Categorie" Relationship="Self.FK_Produs_ToTable_1" FromRole="Produs" ToRole="Categorie" />
+    <NavigationProperty Name="Producator" Relationship="Self.FK_Produs_ToTable" FromRole="Produs" ToRole="Producator" />
+    <NavigationProperty Name="Stocuri" Relationship="Self.FK_Stocuri_ToTable" FromRole="Produs" ToRole="Stocuri" />
+  </EntityType>
+  <EntityType Name="Stocuri">
+    <Key>
+      <PropertyRef Name="Stoc_id" />
+    </Key>
+    <Property Name="Stoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cantitate" Type="Int32" Nullable="false" />
+    <Property Name="Unitate_masura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Data_aprovizionare" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Data_expirare" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Pret_achizitie" Type="Int32" Nullable="false" />
+    <Property Name="Pret_vanzare" Type="Int32" Nullable="false" />
+    <Property Name="Produs_id" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Bonuri_Stocuri" Relationship="Self.FK_Bonuri_Stocuri_Stocuri" FromRole="Stocuri" ToRole="Bonuri_Stocuri" />
+    <NavigationProperty Name="Produs" Relationship="Self.FK_Stocuri_ToTable" FromRole="Stocuri" ToRole="Produs" />
+  </EntityType>
+  <EntityType Name="Utilizator">
+    <Key>
+      <PropertyRef Name="Utilizator_id" />
+    </Key>
+    <Property Name="Utilizator_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_Bonuri_Stocuri_Bonuri">
+    <End Role="Bonuri" Type="Self.Bonuri" Multiplicity="1" />
+    <End Role="Bonuri_Stocuri" Type="Self.Bonuri_Stocuri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bonuri">
+        <PropertyRef Name="Bon_id" />
+      </Principal>
+      <Dependent Role="Bonuri_Stocuri">
+        <PropertyRef Name="Bon_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bonuri_Stocuri_Stocuri">
+    <End Role="Stocuri" Type="Self.Stocuri" Multiplicity="1" />
+    <End Role="Bonuri_Stocuri" Type="Self.Bonuri_Stocuri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stocuri">
+        <PropertyRef Name="Stoc_id" />
+      </Principal>
+      <Dependent Role="Bonuri_Stocuri">
+        <PropertyRef Name="Stoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Produs_ToTable_1">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="Produs" Type="Self.Produs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="Categorie_id" />
+      </Principal>
+      <Dependent Role="Produs">
+        <PropertyRef Name="Categorie_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Produs_ToTable">
+    <End Role="Producator" Type="Self.Producator" Multiplicity="1" />
+    <End Role="Produs" Type="Self.Produs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producator">
+        <PropertyRef Name="Producator_id" />
+      </Principal>
+      <Dependent Role="Produs">
+        <PropertyRef Name="Producator_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stocuri_ToTable">
+    <End Role="Produs" Type="Self.Produs" Multiplicity="1" />
+    <End Role="Stocuri" Type="Self.Stocuri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produs">
+        <PropertyRef Name="Produs_id" />
+      </Principal>
+      <Dependent Role="Stocuri">
+        <PropertyRef Name="Produs_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SupermarketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bonuri" EntityType="Self.Bonuri" />
+    <EntitySet Name="Bonuri_Stocuri" EntityType="Self.Bonuri_Stocuri" />
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+    <EntitySet Name="Producator" EntityType="Self.Producator" />
+    <EntitySet Name="Produs" EntityType="Self.Produs" />
+    <EntitySet Name="Stocuri" EntityType="Self.Stocuri" />
+    <EntitySet Name="Utilizator" EntityType="Self.Utilizator" />
+    <AssociationSet Name="FK_Bonuri_Stocuri_Bonuri" Association="Self.FK_Bonuri_Stocuri_Bonuri">
+      <End Role="Bonuri" EntitySet="Bonuri" />
+      <End Role="Bonuri_Stocuri" EntitySet="Bonuri_Stocuri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bonuri_Stocuri_Stocuri" Association="Self.FK_Bonuri_Stocuri_Stocuri">
+      <End Role="Stocuri" EntitySet="Stocuri" />
+      <End Role="Bonuri_Stocuri" EntitySet="Bonuri_Stocuri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Produs_ToTable_1" Association="Self.FK_Produs_ToTable_1">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Produs" EntitySet="Produs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Produs_ToTable" Association="Self.FK_Produs_ToTable">
+      <End Role="Producator" EntitySet="Producator" />
+      <End Role="Produs" EntitySet="Produs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stocuri_ToTable" Association="Self.FK_Stocuri_ToTable">
+      <End Role="Produs" EntitySet="Produs" />
+      <End Role="Stocuri" EntitySet="Stocuri" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
